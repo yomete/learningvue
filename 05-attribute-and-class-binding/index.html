@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title></title>
+        <style type=text/css>
+            .is-loading {
+                color: red;
+            }
+            .is-disabled {
+                opacity: .5;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="root">
+            <button :title="title">Hover over me</button>
+            <button :class="{ 'is-loading': isLoading }" @click="toggleClass">Toggle Me</button>
+            <button :class="{ 'is-disabled': isDisabled }" @click="toggleDisability">Disable me</button>
+
+        </div>
+
+
+        <script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+        <script>
+
+            var app = new Vue({
+
+                el : '#root',
+                data: {
+                    title: 'Some hover text',
+                    className: 'red',
+                    isLoading: false,
+                    isDisabled: false
+
+                },
+                methods: {
+                    toggleClass() {
+                        this.isLoading = true;
+                    },
+                    toggleDisability() {
+                        this.isDisabled = true;
+                    }
+                }
+            });
+
+        </script>
+    </body>
+</html>
